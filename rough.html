@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .slider-container {
+    width: 400px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+  }
+
+  .slide {
+    min-width: 400px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+<div class="slider-container">
+  <div class="slider">
+    <div class="slide">
+      <img src="./images/9829bbac3e931591344f09e521ead968.png" alt="Image 1">
+    </div>
+    <div class="slide">
+      <img src="./images/lapi1000.jpeg" alt="Image 2">
+    </div>
+    <div class="slide">
+      <img src="./images/haaland.webp" alt="Image 3">
+    </div>
+  </div>
+</div>
+
+<script>
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const slideWidth = slides[0].clientWidth;
+  let currentIndex = 0;
+
+  function slide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
+
+  setInterval(slide, 3000); // Change image every 3 seconds
+</script>
+</body>
+</html>
